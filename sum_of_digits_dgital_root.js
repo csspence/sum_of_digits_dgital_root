@@ -1,7 +1,9 @@
 /*
 In this kata, you must create a digital root function.
 
-A digital root is the recursive sum of all the digits in a number. Given n, take the sum of the digits of n. If that value has more than one digit, continue reducing in this way until a single-digit number is produced. This is only applicable to the natural numbers.
+A digital root is the recursive sum of all the digits in a number. Given n, take the sum of the digits of n. 
+If that value has more than one digit, continue reducing in this way until a single-digit number is produced. 
+This is only applicable to the natural numbers.
 
 Here's how it works:
 
@@ -30,6 +32,15 @@ digital_root(493193)
 => 2
 */
 
-function digital_root(n) {
-  // ...
+const digital_root = (n) => {
+  if(n.toString().length === 1) {
+    return n;
+  } else {
+    let sum = 0;
+    let numStr = n.toString();
+    for(let i = 0; i < numStr.length; i++) {
+      sum += Number(numStr[i]);
+    }
+    return digital_root(sum);
+  }
 }
